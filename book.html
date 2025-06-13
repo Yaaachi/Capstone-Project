@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Styles/style.css">
+    <title>Reservations</title>
+</head>
+<body>
+    <div class="flex-container">
+        <header>
+            <nav>
+                <div class="logo">
+                    <a href="home.html">
+                        <img src="/images/green olive.jpg" alt="UGANDA COUNDRY">                        
+                    </a>
+                    <h1>THEE UGANDA</h1>
+                </div>
+                <ul class="links">
+                    <li><a class="active-menu" href="home.html">Home</a></li>
+                    <li><a class="active-menu" href="menu.html">Menu</a></li>
+                    <li><a class="active-menu" href="events.html">Events</a></li>                 
+                    <li><a class="active-menu" href="book.html">Reservations</a></li>
+                    <li><a class="active-menu" href="contactus.html">Contact Us</a></li>           
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="background-container">
+            <div class="container">
+                <h1>Restaurant Booking</h1>
+                <form id="bookingForm">
+                    <p id="error"></p>
+                    <input type="text" placeholder="Name" id="name" title="Enter your full name" required>
+                    <input type="email" placeholder="Email" id="email" title="Enter your email address" required>
+                    <input type="text" placeholder="Phone Number" id="phone" title="Enter your 10-digit phone number" pattern="\d{10}" required>
+                    
+                    <select id="bookingType" title="Select booking type" required>
+                        <option value="">Select Booking Type</option>
+                        <option value="table">Table Reservation</option>
+                        <option value="event">Event Booking</option>
+                    </select>
+
+                    <input type="number" placeholder="Number of Seats" id="seats" title="Enter the number of seats (up to 20)" min="1" max="20" required>
+                    <input type="date" id="date" title="Select the date" required>
+                    <input type="time" id="time" title="Select the time" required>
+                    
+                    <input type="text" placeholder="Event Type (if applicable)" id="eventType" title="Enter the type of event" style="display:none;">
+                    
+                    <button type="submit" id="submit">Submit</button>
+                </form>
+
+                <div class="alert alert-success" role="alert" id="acknowledgmentMessage" style="display:none;">
+                    <h4 class="alert-heading">Thank you!</h4>
+                    <p>Your reservation was successfully submitted.</p>
+                    <p>We will contact you shortly.</p>
+                    <button id="exit-btn">Exit</button>
+                </div>
+            </div>
+            <a href="home.html"><button class="btn-home">Back to Home</button></a>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <p id="credit">Created by Sakhile 2025</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#bookingForm').on('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                $('#acknowledgmentMessage').show();
+            });
+
+            $('#exit-btn').on('click', function() {
+                $('#acknowledgmentMessage').hide();
+            });
+        });
+    </script>
+</body>
+</html>
